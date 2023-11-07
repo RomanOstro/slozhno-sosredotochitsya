@@ -2,3 +2,20 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+:root {
+  /* Цвета текста */
+  --main-heading-text-color: #DB00FF;
+  --text-with-bg-color:#000028;
+  --side-header-color: #FF0070;
+  /* Цвета фонов и тени */
+  --bg-text-color: #FF0070;
+  --bg-color:#000028;
+  --shadow-color:#FF0070;
+
+  --font-family:"IBM Plex Mono", sans-serif;
+  --main-text-size: 18px;
+  --heading-card-weight: 700;
+  --main-text-weight: 400;
+
+  
+}
