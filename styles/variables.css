@@ -6,13 +6,14 @@
   /* Цвета текста */
   --main-heading-text-color: #DB00FF;
   --text-with-bg-color:#000028;
+  --main-text-color: #F1B2CE;
   --side-header-color: #FF0070;
   /* Цвета фонов и тени */
   --bg-text-color: #FF0070;
   --bg-color:#000028;
-  --shadow-color:#FF0070;
+  --pseudo-color:#FF0070;
 
-  --font-family:"IBM Plex Mono", sans-serif;
+  --font-IBM:"IBM Plex Mono", sans-serif;
   --main-text-size: 18px;
   --title-font-size-mobile: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   --title---title-font-size-more:clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
