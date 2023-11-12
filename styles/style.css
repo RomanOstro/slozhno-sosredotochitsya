@@ -143,7 +143,6 @@
   border: none;
   padding-bottom: 1px;
   border-bottom: 1px solid var(--menu-item-focus-color);
-  outline: none;
 }
 
 .header__theme-menu-button_active {
