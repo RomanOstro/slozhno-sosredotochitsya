@@ -4,19 +4,11 @@
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   font-family: "IBM Plex mono", sans-serif;
   font-size: var(--main-text-size, 18px);
-  background-image: url(/images/cover-image-dark.png);
+  background-image: var(--bg-image-main);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  display: grid;
-  gap: 40px;
-}
-
-@media (width >= 768px) {
-  .page {
-    gap: 60px;
-  }
 }
 
 .header {
@@ -26,12 +18,14 @@
   align-items: center;
   block-size: 100vh;
   inline-size: 100%;
-  padding: 10px;
+  padding: 10px 10px 10px;
+  margin-block-end: 40px;
 }
 
 @media (width >= 768px) {
   .header {
     padding: 10px 20px 0px;
+    margin-block-end: 60px;
   }
 }
 
@@ -40,8 +34,8 @@
   content: "";
   inline-size: 25px;
   block-size: 25px;
-  border-inline-start: 1px solid var(--pseudo-color, #ff0070);
-  border-block-end: 1px solid var(--pseudo-color, #ff0070);
+  border-inline-start: 1px solid var(--pseudo-color);
+  border-block-end: 1px solid var(--pseudo-color);
   left: 10px;
   bottom: 10px;
 }
@@ -51,9 +45,9 @@
   content: "";
   inline-size: 25px;
   block-size: 25px;
-  border-inline-end: 1px solid var(--pseudo-color, #ff0070);
-  border-block-start: 1px solid var(--pseudo-color, #ff0070);
-  top: 9px;
+  border-inline-end: 1px solid var(--pseudo-color);
+  border-block-start: 1px solid var(--pseudo-color);
+  top: 10px;
   right: 10px;
 }
 
@@ -72,7 +66,7 @@
   position: absolute;
   top: 10px;
   right: 38px;
-  color: var(--side-header-color, #ff0070);
+  color: var(--side-header-color);
   text-transform: uppercase;
 }
 
@@ -80,7 +74,7 @@
   content: "";
   inline-size: 9px;
   block-size: 9px;
-  background-color: var(--bg-text-color, #ff0070);
+  background-color: var(--bg-text-color);
   position: absolute;
   top: 6px;
   right: -20px;
@@ -110,7 +104,7 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 11px 12px;
+  gap: 13px 10px;
 }
 
 @media (width >= 1024px) {
@@ -120,14 +114,36 @@
   }
 }
 
+.header__theme-menu-item:hover {
+  outline: 1px solid var(--hover-button-outline-color);
+}
+
+.header__theme-menu-item:last-of-type {
+  block-size: 26px;
+  border: 1px solid var(--menu-item-border-color);
+}
+
 .header__theme-menu-button {
   background: transparent;
   border: none;
   font-family: inherit;
   font-size: var(--main-text-size, 18px);
   font-weight: var(--main-text-weight, 400);
-  color: var(--side-header-color, #ff0070);
-  padding-inline: 13px;
+  color: var(--side-header-color);
+  line-height: 1;
+  padding: 3px 13px;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:focus-visible {
+  border: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--menu-item-focus-color);
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
 }
 
 .header__title {
@@ -135,10 +151,10 @@
     --title-font-size-mobile,
     clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem)
   );
-  color: var(--main-heading-text-color, #db00ff);
+  color: var(--main-heading-text-color);
   font-weight: var(--heading-card-weight, 700);
   line-height: 0.83;
-  text-shadow: 4px 4px 0px #ff0070;
+  text-shadow: 4px 4px 0px var(--header-title-text-shadow);
   font-family: inherit;
   grid-column: 1/3;
 }
@@ -164,31 +180,31 @@
 @media (width >= 768px) {
   .header__text {
     grid-column: 2/3;
-    margin-block-end: 28px;
+    margin-block-end: 23px;
   }
 }
 
 .title-decor {
-  color: var(--text-with-bg-color, #000028);
-  background-color: var(--bg-text-color, #ff0070);
+  color: var(--text-with-bg-color);
+  background-color: var(--bg-text-color);
 }
 
 /* Main-block */
 
 .main {
-  display:grid;
+  display: grid;
   gap: 50px;
   padding-inline: 10px;
+  margin-block-end: 40px;
 }
 
 @media (width >=768px) {
   .main {
     gap: 80px;
     padding-inline: 20px;
+    margin-block-end: 60px;
   }
 }
-
-
 
 /* ---Первый текстовый блок--- */
 
@@ -205,13 +221,12 @@
 
 .text-block-title {
   font-family: inherit;
-  color: var(--side-header-color, #ff0070);
+  color: var(--side-header-color);
   font-size: var(--main-text-size, 18px);
   font-weight: var(----heading-card-weight, 700);
   line-height: 1.3;
   margin-block-end: 20px;
   grid-column: 1/3;
-  
 }
 
 .content-section {
@@ -245,7 +260,7 @@
 
 .content-section__block-description {
   font-family: inherit;
-  color: var(--main-text-color, #f1b2ce);
+  color: var(--main-text-color);
   font-size: var(--main-text-size, 18px);
   font-weight: var(--main-text-weight, 400);
   line-height: 1.3;
@@ -253,11 +268,18 @@
 
 .link {
   text-decoration: none;
-  text-shadow: 2px 2px 0px #ff0070;
+  text-shadow: 2px 2px 0px var(--link-shadow-color);
 }
 
-/* Второй текстовый блок */
+.link:hover {
+  border-bottom: 1px solid var(--link-hover-color);
+}
 
+.link:focus-visible {
+  outline: 1px solid var(--link-focus-color);
+}
+
+/* ---Второй текстовый блок--- */
 
 .other-reasons_content-section {
   display: grid;
@@ -276,4 +298,77 @@
   }
 }
 
-/* Третий текстовый блок */
+/* Третий текстовый блок - стили совпадают с первым */
+
+.recommendations
+  .content-section
+  .content-section__block-subtitle:not(.pre-title) {
+  font-weight: var(--main-text-weight);
+}
+
+/* Галерея */
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__images-section {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+@media (width >= 768px) {
+  .gallery {
+    gap: 20px;
+  }
+
+  .gallery__images-section {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    aspect-ratio: 1/1;
+  }
+
+  .gallery__images-section li:nth-of-type(1) {
+    grid-column: span 2;
+  }
+  .gallery__images-section li:nth-of-type(2) {
+    grid-row: span 2;
+  }
+  .gallery__images-section li:nth-of-type(3) {
+    grid-row: span 2;
+  }
+
+  .gallery__images-section li:nth-of-type(5) {
+    grid-column: span 2;
+  }
+}
+
+.gallery-image {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ---Footer--- */
+
+.footer {
+  display: grid;
+  place-content: center;
+  padding-inline: 10px;
+  block-size: 100vh;
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .footer {
+    padding-inline: 20px;
+  }
+
+  .footer .header__title {
+    margin: 0;
+  }
+}
