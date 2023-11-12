@@ -2,7 +2,7 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  font-family: "IBM Plex mono", sans-serif;
+  font-family: var(--font-IBM);
   font-size: var(--main-text-size, 18px);
   background-image: var(--bg-image-main);
   background-position: center;
@@ -12,6 +12,7 @@
 }
 
 .header {
+  position: relative;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
   grid-template-columns: repeat(2, 1fr);
@@ -65,7 +66,7 @@
 .theme_dark-decor-element {
   position: absolute;
   top: 10px;
-  right: 38px;
+  right: 39px;
   color: var(--side-header-color);
   text-transform: uppercase;
 }
@@ -76,7 +77,7 @@
   block-size: 9px;
   background-color: var(--bg-text-color);
   position: absolute;
-  top: 6px;
+  top: 8px;
   right: -20px;
   border-radius: 50%;
   filter: drop-shadow(0px 0px 4px #ff0070);
@@ -85,13 +86,19 @@
 @media (width >= 768px) {
   .theme_dark-decor-element {
     top: 20px;
-    right: 48px;
+    right: 49px;
   }
 }
 
 .header__theme-menu {
   justify-self: end;
   grid-column: 1/3;
+}
+
+@media (375px < width < 1024px) {
+  .header__theme-menu {
+    padding-block-start: 6px;
+  }
 }
 
 @media (width >= 1024px) {
@@ -104,7 +111,7 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 13px 10px;
+  gap: 12px 10px;
 }
 
 @media (width >= 1024px) {
@@ -114,25 +121,22 @@
   }
 }
 
-.header__theme-menu-item:hover {
-  outline: 1px solid var(--hover-button-outline-color);
-}
-
-.header__theme-menu-item:last-of-type {
-  block-size: 26px;
-  border: 1px solid var(--menu-item-border-color);
-}
-
 .header__theme-menu-button {
   background: transparent;
   border: none;
-  font-family: inherit;
+  font-family: var(--font-IBM);
   font-size: var(--main-text-size, 18px);
   font-weight: var(--main-text-weight, 400);
   color: var(--side-header-color);
   line-height: 1;
   padding: 3px 13px;
   cursor: pointer;
+  outline: 1px solid transparent;
+  transition: outline 0.5s;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--hover-button-outline-color);
 }
 
 .header__theme-menu-button:focus-visible {
@@ -144,6 +148,7 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
+  border: 1px solid var(--menu-item-border-color);
 }
 
 .header__title {
@@ -155,7 +160,7 @@
   font-weight: var(--heading-card-weight, 700);
   line-height: 0.83;
   text-shadow: 4px 4px 0px var(--header-title-text-shadow);
-  font-family: inherit;
+  font-family: var(--font-IBM);
   grid-column: 1/3;
 }
 
@@ -167,10 +172,13 @@
     );
     margin-inline-start: -20px;
   }
+  header .header__title {
+    padding-block-end: 7px;
+  }
 }
 
 .header__text {
-  font-family: inherit;
+  font-family: var(--font-IBM);
   font-size: var(--main-text-size, 18px);
   font-weight: var(--heading-card-weight, 700);
   line-height: 1.3;
@@ -180,7 +188,7 @@
 @media (width >= 768px) {
   .header__text {
     grid-column: 2/3;
-    margin-block-end: 23px;
+    margin-block-end: 30px;
   }
 }
 
@@ -220,10 +228,10 @@
 }
 
 .text-block-title {
-  font-family: inherit;
+  font-family: var(--font-IBM);
   color: var(--side-header-color);
   font-size: var(--main-text-size, 18px);
-  font-weight: var(----heading-card-weight, 700);
+  font-weight: var(--heading-card-weight, 700);
   line-height: 1.3;
   margin-block-end: 20px;
   grid-column: 1/3;
@@ -252,14 +260,14 @@
 }
 
 .content-section__block-subtitle {
-  font-family: inherit;
+  font-family: var(--font-IBM);
   font-size: var(--main-text-size, 18px);
   font-weight: var(--heading-card-weight, 700);
   line-height: 1.3;
 }
 
 .content-section__block-description {
-  font-family: inherit;
+  font-family: var(--font-IBM);
   color: var(--main-text-color);
   font-size: var(--main-text-size, 18px);
   font-weight: var(--main-text-weight, 400);
@@ -269,6 +277,8 @@
 .link {
   text-decoration: none;
   text-shadow: 2px 2px 0px var(--link-shadow-color);
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.6s;
 }
 
 .link:hover {
@@ -369,6 +379,6 @@
   }
 
   .footer .header__title {
-    margin: 0;
+    margin: 0px;
   }
 }

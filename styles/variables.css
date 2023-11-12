@@ -19,7 +19,7 @@
   --menu-item-border-color: #ff0070;
   --menu-item-focus-color: #ff0070;
 
-  --font-IBM: "IBM Plex Mono", sans-serif;
+  --font-IBM: "IBM Plex mono", monospace;
   --main-text-size: 18px;
   --title-font-size-mobile: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   --title---title-font-size-more: clamp(

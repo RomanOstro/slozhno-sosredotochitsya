@@ -9,10 +9,6 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
-}
-
-/* Переменные светлой темы */
-:root .theme_light {
   --main-heading-text-color: #ffc2e6;
   --text-with-bg-color: #353430;
   --main-text-color: #353430;
@@ -22,7 +18,7 @@
   --link-shadow-color: #ff8dcb;
   --link-hover-color: #353430;
   --link-focus-color: #353430;
-  --header-title-text-shadow: #ff0070;
+  --header-title-text-shadow: #ff8dcb;
   --hover-button-outline-color: rgba(50, 49, 45, 0.4);
   --pseudo-color: #353430;
   --menu-item-border-color: #353430;
@@ -31,24 +27,18 @@
   --bg-image-main: url(/images/cover-image-light.png);
 }
 
-@media (width >= 768px) {
-  :root .theme_light {
-    --header-title-text-shadow: #ff8dcb;
+@media (width > 768px) {
+  .page.theme_light {
+    --header-title-text-shadow: #ff0070;
   }
-}
+}  
 
-.theme_light .header .theme_dark-decor-element {
+/* Переменные светлой темы */
+
+.theme_light .theme_dark-decor-element {
   display: none;
 }
 
-.theme_light .header__theme-menu-item:first-of-type {
-  block-size: 26px;
-  border: 1px solid var(--menu-item-border-color);
-}
-
-.theme_light .header__theme-menu-item:last-of-type {
-  border: none;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -61,7 +51,7 @@
     --link-shadow-color: #ff8dcb;
     --link-hover-color: #353430;
     --link-focus-color: #353430;
-    --header-title-text-shadow: #ff0070;
+    --header-title-text-shadow: #ff8dcb;
     --hover-button-outline-color: rgba(50, 49, 45, 0.4);
     --pseudo-color: #353430;
     --menu-item-border-color: #353430;
@@ -70,9 +60,14 @@
     --bg-image-main: url(/images/cover-image-light.png);
   }
 
-  @media (width >= 768px) {
+  @media (width > 768px) {
     :root {
-      --header-title-text-shadow: #ff8dcb;
+      --header-title-text-shadow: #ff0070;
     }
   }
-}
+  .theme_dark-decor-element {
+    display: none;
+  }
+} 
+
+
